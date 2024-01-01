@@ -1,0 +1,19 @@
+<% content_for :body do %>
+  <%= tesseract_render :header_navigation %>
+
+  <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <%= tesseract_render :side_navigation %>
+
+    <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+      <main id="content">
+          <%= tesseract_render :breadcrumb_navigation, page_title: "Rooms" %>
+
+          <%= content_for?(:main) ? yield(:main) : yield %>
+      </main>
+
+      <%= tesseract_render :footer_navigation %>
+    </div>
+  </div>
+<% end %>
+
+<%= render template: 'layouts/skeleton' %>
