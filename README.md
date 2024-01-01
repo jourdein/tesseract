@@ -24,7 +24,7 @@ During experimentation, introduces a better integration technologies
   - Opensource implmentation of Flowbite components
     - https://github.com/themesberg/flowbite-admin-dashboard
     - https://github.com/themesberg/flowbite-astro-admin-dashboard
-
+- use `view_component-contrib` gems
 
 ## RUNNING THE APP
 
@@ -62,6 +62,22 @@ Or `npm` with `run-p` package installed to run the processes in parallel
 `gem ‘view_component’`
 
 `‘./app/components/**/*’` [config/tailwind.config.js]
+
+`rails app:template LOCATION="https://railsbytes.com/script/zJosO5"` - auto install gem `view_component-contrib`
+
+[view_component-contrib](https://github.com/palkan/view_component-contrib/tree/master) github
+
+Allows creating view_component generator
+  ```
+  bundle exec rails g view_component Example
+
+  # see all available options
+  bundle exec rails g view_component -h
+  ```
+
+Inclusion of gem `dry-initializer` - saving from [a lot of boilerplate](https://github.com/palkan/view_component-contrib#hanging-initialize-out-to-dry)
+
+
 
 ## READINGS
 
