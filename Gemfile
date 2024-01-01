@@ -49,6 +49,7 @@ gem "bootsnap", require: false
 # https://github.com/ViewComponent/view_component/issues/560#issuecomment-774529840
 gem "view_component"
 # https://github.com/palkan/view_component-contrib#hanging-initialize-out-to-dry
+gem "lookbook"
 gem "dry-initializer"
 
 group :development, :test do

@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resources :tickers, except: [:update, :edit]
+
+  if Rails.env.development?
+    mount Lookbook::Engine, at: "/lookbook"
+  end
 
   # Defines the root path route ("/")
   # root "articles#index"
