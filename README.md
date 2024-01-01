@@ -1,24 +1,42 @@
-# README
+## RUNNING THE APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```./bin/dev```
 
-Things you may want to cover:
 
-* Ruby version
+## HOTWIRE RAILS SETUP
 
-* System dependencies
+### INSTALL RAILS
 
-* Configuration
+`rails new chat —skip-javascript`
 
-* Database creation
+`gem ‘hotwire-rails’`
 
-* Database initialization
+`gem ‘importmap-rails’`
 
-* How to run the test suite
+`bundle`
 
-* Services (job queues, cache servers, search engines, etc.)
+`rails importmap:install`
 
-* Deployment instructions
+`rails hotwire:install`
 
-* ...
+### INSTALL TAILWINDS
+
+`gem ‘tailwindcss-rails’`
+
+`rails tailwindcss:install`
+
+### INSTALL VIEWCOMPONENTS
+
+`gem ‘view_component’`
+
+`‘./app/components/**/*’` [config/tailwind.config.js]
+
+## READINGS
+
+### REALTIME
+- [Mercure Hub](https://mercure.rocks/docs/ecosystem/awesome#examples)
+
+- [Turbo Train](https://github.com/Uscreen-video/turbo-train)
+
+- [Fastly-Fanout-Pushpin](https://www.fastly.com/blog/fastly-fanout-why-real-time-messaging-and-edge-computing-are-an-amazing-combination)\
+“Fanout provides an Open Source implementation named Pushpin”
