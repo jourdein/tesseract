@@ -30,9 +30,9 @@ module Tesseract::Helpers
         class_namespace = ref.camelize
 
         begin
-          klass = "Tesseract::#{class_namespace}::Component".constantize
+          klass = "#{class_namespace}::Component".constantize
         rescue
-          klass = "Tesseract::#{class_namespace}Component".constantize
+          klass = "#{class_namespace}Component".constantize
         end
 
         COMPONENT_CLASS[ref] = klass
