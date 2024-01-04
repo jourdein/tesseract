@@ -1,9 +1,15 @@
+# frozen_string_literal: true
 class TickersController < ApplicationController
   before_action :set_ticker, only: %i[show destroy]
 
   def index
-    # @tickers = ::Ticker.all
-    # @show_tickers = params[:proceed] || !@tickers.empty?
+    @tickers = ::Ticker.all
+    @show_tickers = params[:proceed] || !@tickers.empty?
+
+    if @tickers.empty?
+      ::Ticker.generate_random
+      @tickers = ::Ticker.all
+    end
   end
 
   private

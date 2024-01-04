@@ -1,0 +1,16 @@
+<div class="px-4">
+  <div class="bg-white">
+    <div class="px-4 py-16 mx-auto max-w-7xl sm:pt-24 sm:pb-12 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-base font-semibold tracking-wide text-green-600 uppercase">Cloud 66</h2>
+        <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Tickerizer</p>
+        <p class="max-w-xl mx-auto mt-5 text-xl text-gray-500">A Simple Stock Ticker App to Demonstrate, Rails, Hotwire, ViewComponents and TailwindCSS, deployed with Cloud 66</p>
+      </div>
+      <% if @show_tickers %>
+        <%= render 'index', tickers: @tickers %>
+      <% else %>
+        <%= render 'onboard' %>
+      <% end %>
+    </div>
+  </div>
+</div>
