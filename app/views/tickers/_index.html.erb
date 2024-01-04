@@ -1,11 +1,9 @@
-<%#= render 'search/search' %>
+<%= render 'search/search' %>
 <%= turbo_frame_tag :tickers do %>
   <div class="flex flex-wrap justify-center mt-8">
     <% tickers.each do |ticker| %>
       <div class="m-2">
-        <%= turbo_frame_tag dom_id(ticker) do %>
-          <%= render partial: 'ticker', locals: { ticker: ticker } %>
-        <% end %>
+        <%= render partial: 'ticker', locals: { ticker: ticker } %>
       </div>
     <% end %>
     <div class="m-2">

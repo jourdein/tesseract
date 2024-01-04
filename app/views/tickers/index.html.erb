@@ -9,7 +9,12 @@
       <% if @show_tickers %>
         <%= render 'index', tickers: @tickers %>
       <% else %>
-        <%= render 'onboard' %>
+      <div class="p-8 mt-8 bg-yellow-200 border border-yellow-300 rounded-lg">
+        <div class="text-center text-yellow-700 ">
+          This demo uses fake stock data. To use it with real data, you need an API key from Alpha Vantage
+          <a href="https://www.alphavantage.co/support/#api-key" class="text-blue-500">here.</a>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
