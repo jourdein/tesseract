@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_12_090830) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_01_202949) do
   create_table "messages", force: :cascade do |t|
     t.integer "room_id", null: false
     t.text "content"
@@ -21,6 +21,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_090830) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tickers", force: :cascade do |t|
+    t.string "symbol", null: false
+    t.float "open"
+    t.float "close"
+    t.integer "volume"
+    t.float "high"
+    t.float "low"
+    t.date "latest_trading_day"
+    t.float "change_percent"
+    t.float "change"
+    t.float "previous_close"
+    t.float "price"
+    t.datetime "last_fetch_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
