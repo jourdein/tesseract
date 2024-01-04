@@ -1,0 +1,2 @@
+inherit_from:
+  - /Users/matt/.config/rubocop/rubocop.yml
