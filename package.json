@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "dev": "run-p dev:*",
-    "dev:web": "env RUBY_DEBUG_OPEN=true bin/rails server -p 3000",
+    "dev": "run-p dev:web:*",
+    "off:dev:web": "env RUBY_DEBUG_OPEN=true bin/rails server -p 3000",
+    "dev:web:rails": "bin/rails server -p 3000",
     "dev:css": "bin/rails tailwindcss:watch"
   },
   "dependencies": {

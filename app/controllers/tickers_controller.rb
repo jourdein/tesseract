@@ -12,6 +12,12 @@ class TickersController < ApplicationController
     end
   end
 
+  def destroy
+    @ticker.destroy
+
+    render turbo_stream: turbo_stream.replace('tickers', partial: 'index', locals: { tickers: ::Ticker.all })
+  end
+
   private
 
   def set_ticker

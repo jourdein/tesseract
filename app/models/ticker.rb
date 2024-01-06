@@ -6,6 +6,10 @@ class Ticker < ApplicationRecord
 
   before_save -> { symbol.upcase! }
 
+  after_update_commit -> {
+    puts "> after_update_commit: broadcast_replace_to"
+    broadcast_replace_to(:tickers)
+  }
   after_create_commit :fetch_it
 
   def fetch!
@@ -53,8 +57,8 @@ class Ticker < ApplicationRecord
   end
 
   def fetch_it
-    puts '--> fetch it!'
-    TickerJob.set(wait: 30.seconds).perform_later self
-    # TickerJob.perform_later self
+    puts '--> fetch it! perform later'
+    # TickerJob.set(wait: 5.seconds).perform_later self
+    TickerJob.perform_later self
   end
 end
