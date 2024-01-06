@@ -1,5 +1,5 @@
 <div class="group block relative border <%= ticker.ready? ? 'bg-white' : 'bg-blue-50' %> border-gray-100 transition duration-100 rounded shadow-sm p-4 hover:shadow h-20 w-56"
-     data-controller="ticker-viewer--component">
+     data-controller="<%= viewcomponent_name %>">
   <div>
     <%= button_to ticker_path(ticker), method: :delete, class: 'block' do %>
       <div class="absolute top-0 right-0 -mt-2 -mr-2 text-red-500 transition duration-100 ease-in-out opacity-0 group-hover:opacity-100">
@@ -21,7 +21,7 @@
       <% if ticker.ready? %>
         <div class="<%= ticker.change.negative? ? 'bg-red-200' : 'bg-green-200' %> rounded-full px-2"
              role="button"
-             data-action="click->ticker-viewer--component#toggle"
+             data-action="click-><%= viewcomponent_name %>#toggle"
           data-percent-change="<%= ticker.change_percent %>"
           data-price-change="<%= ticker.change %>"
           data-price-type="price">
@@ -35,7 +35,7 @@
                 <path d="m56.398 94.801 27.902-27.801c3.6016-3.6016 3.6016-9.3008 0-12.898-3.6016-3.6016-9.3008-3.6016-12.898 0l-12.301 12.297v-54.797c0-5-4.1016-9.1016-9.1016-9.1016s-9.1016 4.1016-9.1016 9.1016v54.801l-12.297-12.203c-3.6016-3.6016-9.3008-3.6016-12.898 0-1.8008 1.8008-2.6992 4.1016-2.6992 6.3984 0 2.3008 0.89844 4.6992 2.6992 6.3984l27.801 27.801c1.6992 1.6992 4 2.6992 6.3984 2.6992 2.3984 0.003906 4.7969-0.99609 6.4961-2.6953z"/>
               </svg>
             <% end %>
-            <span data-ticker-viewer--component-target="change"><%= change_value(:change) %></span>
+            <span data-<%= viewcomponent_name %>-target="change"><%= change_value(:change) %></span>
           </div>
         </div>
       <% end %>

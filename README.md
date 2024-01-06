@@ -77,7 +77,18 @@ Allows creating view_component generator
 
 Inclusion of gem `dry-initializer` - saving from [a lot of boilerplate](https://github.com/palkan/view_component-contrib#hanging-initialize-out-to-dry)
 
+### ADDITIONAL CONFIGURATIONS
 
+#### To be able to use **importmap**
+
+- Set additional assets path _assets.rb_  \
+  `Rails.application.config.assets.paths << Rails.root.join('app/frontend/components')`
+
+- Add line into _manifest.js_  \
+  `//= link_tree ../../frontend/components .js`
+
+- Add pin to components js in dir _config/importmap.rb_  \
+  `pin_all_from "app/frontend/components", preload: true`
 
 ## READINGS
 
