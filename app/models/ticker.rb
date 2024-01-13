@@ -12,6 +12,7 @@ class Ticker < ApplicationRecord
   }
   after_create_commit :fetch_it
 
+  # fetch price from API and store it
   def fetch!
     puts '---> fetch!'
 
@@ -19,10 +20,15 @@ class Ticker < ApplicationRecord
 
     puts "=> #{stock}"
 
-    quote_h = stock.except(:name, :exchange, :market_cap, :country, :ipo_year, :sector, :industry, :total_stock)
-    # replace net_change with change
-    quote_h[:change] = quote_h.delete(:net_change)
-    quote_h[:change_percent] = quote_h.delete(:percent_change)
+    if $real_data
+      quote = stock.quote
+      quote_h = quote.to_h.except(:output)
+    else
+      quote_h = stock.except(:name, :exchange, :market_cap, :country, :ipo_year, :sector, :industry, :total_stock)
+      # replace net_change with change
+      quote_h[:change] = quote_h.delete(:net_change)
+      quote_h[:change_percent] = quote_h.delete(:percent_change)
+    end
 
     quote_h.merge!({ last_fetch_at: Time.now.utc })
 

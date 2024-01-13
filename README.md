@@ -1,6 +1,8 @@
 ## OVERVIEW
 Experimenting with Hotwire (HTML Over The Wire)\
-Following tutorial from blog: https://blog.cloud66.com/hotwire-viewcomponents-and-tailwindcss-the-ultimate-rails-stack
+Following tutorial from
+  - blog: https://blog.cloud66.com/hotwire-viewcomponents-and-tailwindcss-the-ultimate-rails-stack
+  - code: https://github.com/cloud66-samples/tickerizer
 
 Key items:
 - Rails
@@ -21,9 +23,13 @@ During experimentation, introduces a better integration technologies
   - TailwindCSS through Flowbite
   - Flowbite provides free Figma community design component
   - [Flowbite - Tailwind CSS Figma Design System (Free Edition) (Community)](https://www.figma.com/file/VbIKd1W4Ir8Tk4MWcHVLo9/Flowbite---Tailwind-CSS-Figma-Design-System-(Free-Edition)-(Community)?type=design&node-id=1-82&mode=design&t=DWUf39AUz6I6aQQH-0)
-  - Opensource implmentation of Flowbite components
+  - Opensource implementation of Flowbite components
     - https://github.com/themesberg/flowbite-admin-dashboard
     - https://github.com/themesberg/flowbite-astro-admin-dashboard
+    - https://flowbite-admin-dashboard.vercel.app/playground/sidebar/
+    - https://flowbite.com/application-ui/demo/e-commerce/billing/
+    - https://flowbite.com/docs/components/breadcrumb/
+    -
 - use `view_component-contrib` gems
 
 ## RUNNING THE APP
