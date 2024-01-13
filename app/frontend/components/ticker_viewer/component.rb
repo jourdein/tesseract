@@ -5,8 +5,8 @@ class TickerViewer::Component < ApplicationViewComponent
 
    # negative numbers have a - sign but positive ones don't
   def change_value(attribute)
-    puts "@ CHANGE VALUE"
     value = ticker.send(attribute)
+    puts "@ CHANGE VALUE #{value}"
     if value.positive?
       "+#{value}"
     else

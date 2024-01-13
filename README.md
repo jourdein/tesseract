@@ -7,6 +7,7 @@ Following tutorial from
 Key items:
 - Rails
 - Turbo
+  - https://www.rubydoc.info/gems/turbo-rails/0.5.2/Turbo%2FBroadcastable:broadcast_replace_to
 - Stimulus
 
 Futher tutorial that use `ViewComponent` with `Lookbook` gem.\

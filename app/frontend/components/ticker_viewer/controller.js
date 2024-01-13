@@ -2,7 +2,7 @@
 import { Controller as BaseController } from "@hotwired/stimulus";
 
 export class Controller extends BaseController {
-  static targets = ["change"];
+  static targets = ["change"]; // https://stimulus.hotwired.dev/reference/targets
 
   connect() {
     this.element.classList.add("new-item");
