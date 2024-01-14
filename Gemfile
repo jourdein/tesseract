@@ -3,20 +3,28 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+# core
+gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sprockets-rails"
 gem "sqlite3", "~> 1.4"
-gem "puma", "~> 5.0"
+
+# dev
+gem "bootsnap", require: false
+gem 'httparty'
 gem "jbuilder"
 
+# hotwire related
 gem 'hotwire-rails'
 gem 'importmap-rails'
 gem 'tailwindcss-rails'
 
+# realtime
 gem "redis", "~> 4.0"
 gem "sidekiq"
-gem "bootsnap", require: false
 
+gem "dry-initializer"
+gem "lookbook"
 # https://viewcomponent.org/guide/getting-started.html
 # https://codeando.dev/posts/rails-view-components/
 # https://mixandgo.com/learn/ruby-on-rails/view-component
@@ -24,9 +32,9 @@ gem "bootsnap", require: false
 gem "view_component"
 # https://github.com/palkan/view_component-contrib#hanging-initialize-out-to-dry
 gem "view_component-contrib", "~> 0.2.2"
-gem "lookbook"
-gem "dry-initializer"
-gem 'httparty'
+
+# api and 3rd party
+gem 'alphavantagerb'
 
 group :development do
   gem 'brakeman'

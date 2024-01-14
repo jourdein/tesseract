@@ -4,9 +4,9 @@ class TickersController < ApplicationController
 
   def index
     @tickers = ::Ticker.all
-    @show_tickers = params[:proceed] || !@tickers.empty?
+    @show_tickers = $real_data || params[:proceed] || !@tickers.empty?
 
-    if @tickers.empty?
+    if params[:proceed] && @tickers.empty?
       ::Ticker.generate_random
       @tickers = ::Ticker.all
     end

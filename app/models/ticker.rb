@@ -10,11 +10,14 @@ class Ticker < ApplicationRecord
     puts "> after_update_commit: broadcast_replace_to"
     broadcast_replace_to(:tickers)
   }
+  after_destroy_commit -> {
+    puts "> after_destroy_commit!"
+    broadcast_remove_to(:tickers) }
   after_create_commit :fetch_it
 
   # fetch price from API and store it
   def fetch!
-    puts '---> fetch!'
+    puts ' --> fetch!'
 
     stock = client.stock(symbol: symbol)
 
@@ -59,12 +62,16 @@ class Ticker < ApplicationRecord
   private
 
   def client
-    @client ||= ::MarketInfo::Client.new
+    @client ||= if $real_data
+      ::Alphavantage::Client.net(key: $vantage_api_key)
+    else
+      ::MarketInfo::Client.new
+    end
   end
 
   def fetch_it
     puts '--> fetch it! perform later'
-    # TickerJob.set(wait: 5.seconds).perform_later self
-    TickerJob.perform_later self
+    TickerJob.set(wait: 2.seconds).perform_later self
+    # TickerJob.perform_later self
   end
 end

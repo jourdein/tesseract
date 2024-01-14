@@ -68,6 +68,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    alphavantagerb (1.4.0)
+      httparty (>= 0.15.6)
+      humanize (>= 1.7.0)
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.17.0)
@@ -106,6 +109,7 @@ GEM
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
+    humanize (2.5.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.3)
@@ -298,6 +302,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  alphavantagerb
   bootsnap
   brakeman
   capybara
