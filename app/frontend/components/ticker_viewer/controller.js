@@ -9,7 +9,6 @@ export class Controller extends BaseController {
   }
 
   toggle(event) {
-    console.log(`event ${event}`);
     if (event.currentTarget.dataset.priceType == "price") {
       this.changeTarget.innerHTML = event.currentTarget.dataset.percentChange + "%";
       event.currentTarget.dataset.priceType = "percent";

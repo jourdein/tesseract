@@ -15,8 +15,11 @@ class Ticker < ApplicationRecord
     broadcast_remove_to(:tickers)
   }
   after_create_commit -> {
-    fetch_it
     puts "[AFTER_CREATE] #{::Ticker.count} [BROADCAST_REPLACE_TO] #{self.id}-#{self.symbol}".colorize(color: :red, mode: :bold)
+    fetch_it
+
+    # it's more efficient and better visually to only add the new one to the list
+    # but I'm using this as an example to show different ways
     broadcast_replace_to(:tickers, target: :tickers, partial: 'tickers/index', locals: { tickers: ::Ticker.all })
   }
 
