@@ -38,6 +38,7 @@ gem 'alphavantagerb'
 
 group :development do
   gem 'brakeman'
+  gem 'colorize'
   gem "rubocop"
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false

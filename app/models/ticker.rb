@@ -7,21 +7,24 @@ class Ticker < ApplicationRecord
   before_save -> { symbol.upcase! }
 
   after_update_commit -> {
-    puts "> after_update_commit: broadcast_replace_to"
+    puts "[AFTER_UPDATE] [BROADCAST_REPLACE_TO] #{self.id}-#{self.symbol}".colorize(color: :blue, mode: :bold)
     broadcast_replace_to(:tickers)
   }
   after_destroy_commit -> {
-    puts "> after_destroy_commit!"
-    broadcast_remove_to(:tickers) }
-  after_create_commit :fetch_it
+    puts "[AFTER_DESTROY] [BROADCAST_REMOVE_TO] #{self.id}-#{self.symbol}".colorize(color: :red, mode: :bold)
+    broadcast_remove_to(:tickers)
+  }
+  after_create_commit -> {
+    fetch_it
+    puts "[AFTER_CREATE] #{::Ticker.count} [BROADCAST_REPLACE_TO] #{self.id}-#{self.symbol}".colorize(color: :red, mode: :bold)
+    broadcast_replace_to(:tickers, target: :tickers, partial: 'tickers/index', locals: { tickers: ::Ticker.all })
+  }
 
   # fetch price from API and store it
   def fetch!
-    puts ' --> fetch!'
-
     stock = client.stock(symbol: symbol)
 
-    puts "=> #{stock}"
+    puts "[FETCH STOCK #{symbol}] => #{stock}"
 
     if $real_data
       quote = stock.quote
@@ -41,14 +44,13 @@ class Ticker < ApplicationRecord
 
   # Same as fetch! but skips if last update was less than a minute ago
   def fetch
-    puts '--> fetch'
     return self if last_fetch_at.present? && (Time.now.utc - last_fetch_at < 1.minute)
 
     fetch!
   end
 
   def self.generate_random
-    puts 'generate random'
+    puts '[RANDOM GENERATOR]'
     ::Ticker.create(symbol: 'AAPL')
     ::Ticker.create(symbol: 'TSLA')
     ::Ticker.create(symbol: 'UAL')
@@ -70,8 +72,8 @@ class Ticker < ApplicationRecord
   end
 
   def fetch_it
-    puts '--> fetch it! perform later'
-    TickerJob.set(wait: 2.seconds).perform_later self
+    puts "[PERFORM LATER #{self.id}]"
+    TickerJob.set(wait: 1.seconds).perform_later self
     # TickerJob.perform_later self
   end
 end

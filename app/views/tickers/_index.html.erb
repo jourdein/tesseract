@@ -2,7 +2,7 @@
   <div class="flex flex-wrap justify-center mt-8">
     <% tickers.each do |ticker| %>
       <div class="m-2">
-        <%= render partial: 'ticker', locals: { ticker: ticker } %>
+        <%= render partial: 'tickers/ticker', locals: { ticker: ticker } %>
       </div>
     <% end %>
 

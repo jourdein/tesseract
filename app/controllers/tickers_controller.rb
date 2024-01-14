@@ -12,6 +12,21 @@ class TickersController < ApplicationController
     end
   end
 
+  def new
+    @ticker = ::Ticker.new
+  end
+
+  def create
+    @ticker = ::Ticker.new(valid_params)
+
+    if @ticker.save
+      # render turbo_stream: turbo_stream.replace('tickers', partial: 'index', locals: { tickers: ::Ticker.all })
+      head :ok
+    else
+      render turbo_stream: turbo_stream.replace('new_ticker', partial: 'form', locals: { ticker: @ticker })
+    end
+  end
+
   def destroy
     @ticker.destroy
 

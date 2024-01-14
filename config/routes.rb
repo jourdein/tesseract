@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :tickers, except: %i[update edit]
+
   scope :search do
     get :documents, to: 'search#documents'
   end

@@ -8,6 +8,9 @@ Key items:
 - Rails
 - Turbo
   - https://www.rubydoc.info/gems/turbo-rails/0.5.2/Turbo%2FBroadcastable:broadcast_replace_to
+  - Replace by frame, and replace by stream (http response)
+  - Addtionally, using Websocket, replacable by stream on Model
+  - https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb
 - Stimulus
 
 Futher tutorial that use `ViewComponent` with `Lookbook` gem.\
