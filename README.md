@@ -35,6 +35,7 @@ During experimentation, introduces a better integration technologies
     - https://flowbite.com/docs/components/breadcrumb/
     -
 - use `view_component-contrib` gems
+- [ViewComponent in the Wild II: supercharging your components](https://evilmartians.com/chronicles/viewcomponent-in-the-wild-supercharging-your-components#base-classes)
 
 ## RUNNING THE APP
 
@@ -109,3 +110,34 @@ Inclusion of gem `dry-initializer` - saving from [a lot of boilerplate](https://
 
 - [Fastly-Fanout-Pushpin](https://www.fastly.com/blog/fastly-fanout-why-real-time-messaging-and-edge-computing-are-an-amazing-combination)\
 “Fanout provides an Open Source implementation named Pushpin”
+
+- [GoodJob](https://github.com/bensheldon/good_job)
+
+  - **Designed for Active Job.** Complete support for async, queues, delays, priorities, timeouts, and retries with near-zero configuration.
+
+  - **Built for Rails.** Fully adopts Ruby on Rails threading and code execution guidelines with Concurrent::Ruby.
+
+  - **Backed by Postgres.** Relies upon Postgres integrity, session-level Advisory Locks to provide run-once safety and stay within the limits of schema.rb, and LISTEN/NOTIFY to reduce queuing latency.
+
+  > Kesimpulannya, GoodJob ni Sidekiq without Redis. Just use Postgres. No need to additionally setup Postgres.  Simpler.
+
+- Sidekiq
+
+  - https://blog.morizyun.com/ruby/library-sidekiq-job-queue-active-job.html
+
+- [Building a Component Library with ViewComponent, Tailwind and Lookbook](https://content.ophelos.com/post/building-a-component-library-with-viewcomponent-tailwind-and-lookbook)
+
+- SSE
+
+  - [Fetch Event Source](https://github.com/Azure/fetch-event-source)  \
+    provides a better API for making Event Source requests - also known as server-sent events - with all the features available in the Fetch API.
+
+  - [Using Fetch Event Source for server-sent events in React](https://blog.logrocket.com/using-fetch-event-source-server-sent-events-react/)
+
+  - [Server Sent Events in React](https://medium.com/@imanshurathore/server-sent-events-in-react-30021f9ffc4a)
+
+  - [Example of Server-Sent Events in Client (React)](https://gist.github.com/marttp/5bdfa30acfc44b24ff3262893d61e4ca)
+
+- WS Tutorial
+
+  - [Building a Chat Application with React and Websockets](https://www.sohamkamani.com/reactjs/chat-application/)
