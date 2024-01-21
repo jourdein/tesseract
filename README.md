@@ -37,11 +37,19 @@ During experimentation, introduces a better integration technologies
 - use `view_component-contrib` gems
 - [ViewComponent in the Wild II: supercharging your components](https://evilmartians.com/chronicles/viewcomponent-in-the-wild-supercharging-your-components#base-classes)
 
+## ADDITIONAL STRUCTURE ON TOP OF STANDARD RAILS
+
+`app/frontend/components`
+  - ViewComponents
+  - May contain View (`.html.erb`), Controller (`component.rb`), Stimulus Controller (`controller.js`), Styles (not yet experimented)
+  - Preview (by ViewController) also not yet experimented
+
+
 ## RUNNING THE APP
 
 ```./bin/dev```
 
-Rails come with script to install `foreman`
+Rails come with script to install `foreman`  \
 Could use `overmind` or `hivemind`
 
 Or `npm` with `run-p` package installed to run the processes in parallel
